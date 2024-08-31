@@ -1,18 +1,10 @@
-import { computed, onMounted, ref } from "vue";
+import { ref } from "vue";
 import { defineStore } from "pinia";
 import axios from "axios";
 
-interface ProductCast {
-  id: number;
-  name: string;
-  image: string;
-  price: number;
-  qty: number;
-}
-
 export const useProductStore = defineStore("product", () => {
   const productLists = ref<Products[]>([]);
-  const productSelected = ref<ProductCast[]>([]);
+  const productSelected = ref<ProductSelectd[]>([]);
   const productSumPrice = ref<number>(0);
 
   const getProducts = async () => {
@@ -23,7 +15,7 @@ export const useProductStore = defineStore("product", () => {
     productLists.value = resp;
   };
 
-  const addProductCast = (product: ProductCast) => {
+  const addProductCast = (product: ProductSelectd) => {
     if (productSelected.value.length > 0) {
       productSumPrice.value += product.qty * product.price;
       const item = productSelected.value.find((e) => e.id == product.id);
