@@ -7,7 +7,7 @@
             <p>{{ product.title }}</p>
             <hr>
             <button @click="addProduct(product)"
-                class=" p-1 bg-blue-500 text-white hover:bg-blue-200 active:text-black">add
+                class="p-1 bg-blue-500 text-white hover:bg-blue-200 active:text-black">add
                 to
                 cast</button>
         </div>
