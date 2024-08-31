@@ -2,13 +2,7 @@ import { computed, onMounted, ref } from "vue";
 import { defineStore } from "pinia";
 import axios from "axios";
 
-interface ProductSelectd {
-  id: number;
-  name: string;
-  image: string;
-  price: number;
-  qty: number;
-}
+
 
 export const useProductStore = defineStore("product", () => {
   const productLists = ref<Products[]>([]);
