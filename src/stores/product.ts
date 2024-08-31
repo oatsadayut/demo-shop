@@ -32,15 +32,15 @@ export const useProductStore = defineStore("product", () => {
       } else {
         productSelected.value.push(product);
       }
-
     } else {
       productSumPrice.value = product.qty * product.price;
       productSelected.value.push(product);
     }
   };
-  
+
   const removeProduct = (idx: number) => {
-    delete productSelected.value[idx]
+    productSelected.value.splice(idx, 1);
+    console.log(productSelected.value);
   };
 
   return {
