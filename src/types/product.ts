@@ -15,11 +15,3 @@ interface Category {
   creationAt: string;
   updatedAt: string;
 }
-
-interface ProductSelectd {
-  id: number;
-  name: string;
-  image: string;
-  price: number;
-  qty: number;
-}
