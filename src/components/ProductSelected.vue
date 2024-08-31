@@ -3,15 +3,15 @@
         <p>ตะกร้าสินค้า</p>
         <hr>
         <div class=" border p-1 overflow-auto h-[50vh]">
-            <div v-for="p in productStore.productCastList" class=" mb-1">
-                <span class=" font-bold">{{ p.name }}</span>
+            <div v-for="(p, idx) in productStore.productSelected" class=" mb-1">
+                <span class=" font-bold">{{ p.name }} </span>
                 <br>
                 <span>จำนวน : {{ p.qty }} ราคาต่อหน่วย : {{ p.price }} ราคา : {{ p.price * p.qty }}</span>
                 <hr>
             </div>
             <hr>
         </div>
-        <p>ราคาทั้งหมด : {{ productStore.productCastSumPrice }}</p>
+        <p>ราคาทั้งหมด : {{ productStore.productSumPrice }}</p>
 
     </div>
 </template>

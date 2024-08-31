@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import NavbarComponent from '@/components/NavbarComponent.vue';
-import ProductListComponent from '@/components/ProductListComponent.vue';
-import ProductCastListComponent from '@/components/ProductCastListComponent.vue';
+import Navbar from '@/components/Navbar.vue';
+import ProductList from '@/components/ProductList.vue';
+import ProductCastList from '@/components/ProductSelected.vue';
 </script>
 
 <template>
-  <NavbarComponent />
+  <Navbar />
   <main>
     <div class="grid grid-cols-12 gap-4">
       <div class="max-sm:col-span-12 col-span-9">
-        <ProductListComponent />
+        <ProductList />
       </div>
       <div class=" max-sm:hidden col-span-3">
-        <ProductCastListComponent />
+        <ProductCastList />
       </div>
     </div>
   </main>

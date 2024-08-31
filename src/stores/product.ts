@@ -12,8 +12,8 @@ interface ProductCast {
 
 export const useProductStore = defineStore("product", () => {
   const productLists = ref<Products[]>([]);
-  const productCastList = ref<ProductCast[]>([]);
-  const productCastSumPrice = ref<number>(0);
+  const productSelected = ref<ProductCast[]>([]);
+  const productSumPrice = ref<number>(0);
 
   const getProducts = async () => {
     const getData = await axios.get<Products[]>(
@@ -24,28 +24,31 @@ export const useProductStore = defineStore("product", () => {
   };
 
   const addProductCast = (product: ProductCast) => {
-    if (productCastList.value.length > 0) {
-      productCastSumPrice.value += product.qty * product.price;
-      const item = productCastList.value.find((e) => e.id == product.id);
+    if (productSelected.value.length > 0) {
+      productSumPrice.value += product.qty * product.price;
+      const item = productSelected.value.find((e) => e.id == product.id);
       if (item) {
         item.qty += 1;
       } else {
-        productCastList.value.push(product);
+        productSelected.value.push(product);
       }
 
     } else {
-      productCastSumPrice.value = product.qty * product.price;
-      productCastList.value.push(product);
+      productSumPrice.value = product.qty * product.price;
+      productSelected.value.push(product);
     }
   };
   
-  const delectProduct = () => {};
+  const removeProduct = (idx: number) => {
+    delete productSelected.value[idx]
+  };
 
   return {
     productLists,
-    productCastList,
-    productCastSumPrice,
+    productSelected,
+    productSumPrice,
     getProducts,
     addProductCast,
+    removeProduct,
   };
 });
